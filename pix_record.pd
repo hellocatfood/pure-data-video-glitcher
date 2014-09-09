@@ -1,0 +1,123 @@
+#N canvas -16 22 637 472 10;
+#X obj 207 51 cnv 15 170 410 empty empty empty 20 12 0 14 -228992 -66577
+0;
+#X text 211 34 Example:;
+#X obj 237 397 cnv 15 100 60 empty empty empty 20 12 0 14 -195568 -66577
+0;
+#N canvas 0 22 450 300 gemwin 0;
+#X obj 132 136 gemwin;
+#X obj 67 89 outlet;
+#X obj 67 10 inlet;
+#X msg 67 70 set destroy;
+#X msg 132 112 create \, 1;
+#X msg 198 112 destroy;
+#X msg 156 71 set create;
+#X obj 67 41 route create;
+#X connect 2 0 7 0;
+#X connect 3 0 1 0;
+#X connect 4 0 0 0;
+#X connect 5 0 0 0;
+#X connect 6 0 1 0;
+#X connect 7 0 3 0;
+#X connect 7 0 4 0;
+#X connect 7 1 6 0;
+#X connect 7 1 5 0;
+#X restore 242 436 pd gemwin;
+#X msg 242 417 create;
+#X text 238 396 Create window:;
+#X obj 209 192 cnv 15 167 200 empty empty empty 20 12 0 14 -24198 -66577
+0;
+#X obj 209 57 gemhead;
+#X obj 273 126 t f;
+#X obj 222 79 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#N canvas 0 22 450 300 open 0;
+#X obj 85 49 inlet;
+#X obj 85 237 outlet;
+#X obj 85 145 openpanel;
+#X msg 85 179 open \$1;
+#X msg 259 213 auto 1;
+#X obj 268 179 loadbang;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X restore 222 98 pd open;
+#X text 243 72 open a supported;
+#X text 244 83 movie-clip;
+#X obj 209 372 pix_record;
+#X obj 228 341 cnv 15 145 25 empty empty empty 20 12 0 14 -225271 -66577
+0;
+#X msg 238 345 bang;
+#X msg 310 345 auto \$1;
+#X obj 291 346 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 228 197 cnv 15 145 65 empty empty empty 20 12 0 14 -225271 -66577
+0;
+#X msg 234 222 codeclist;
+#X msg 230 201 dialog;
+#X obj 187 234 t a;
+#X obj 218 269 cnv 15 155 65 empty empty empty 20 12 0 14 -225271 -66577
+0;
+#X msg 221 290 file /Users/debeul/Desktop/video_hack/untitled;
+#X obj 222 271 bng 15 250 50 0 empty empty empty 0 -6 0 8 -258699 -1
+-1;
+#N canvas 0 22 450 300 savepanel 0;
+#X obj 114 62 inlet;
+#X obj 114 254 outlet;
+#X obj 114 199 t b a;
+#X obj 114 125 savepanel;
+#X msg 114 162 set file \$1;
+#X connect 0 0 3 0;
+#X connect 2 0 1 0;
+#X connect 2 1 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X restore 242 270 pd savepanel;
+#X msg 278 313 record \$1;
+#X obj 258 315 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+1;
+#X obj 221 313 t a;
+#X text 284 148 (do somthing);
+#X text 273 166 (monitoring);
+#X floatatom 297 375 5 0 0 0 - - -;
+#X msg 290 242 codec mjpa;
+#X obj 209 146 pix_texture;
+#X obj 209 126 pix_video;
+#X obj 144 171 separator;
+#X obj 211 170 separator;
+#X obj 138 224 rectangle;
+#X msg 310 223 codec 14;
+#X msg 303 202 codec 15;
+#X obj 74 196 translateXYZ 3 -2 0;
+#X obj 185 43 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X connect 3 0 4 0;
+#X connect 4 0 3 0;
+#X connect 7 0 34 0;
+#X connect 9 0 10 0;
+#X connect 10 0 34 0;
+#X connect 13 1 31 0;
+#X connect 15 0 13 0;
+#X connect 16 0 13 0;
+#X connect 17 0 16 0;
+#X connect 19 0 21 0;
+#X connect 20 0 21 0;
+#X connect 21 0 13 0;
+#X connect 23 0 28 0;
+#X connect 24 0 25 0;
+#X connect 25 0 23 0;
+#X connect 26 0 28 0;
+#X connect 27 0 26 0;
+#X connect 28 0 13 0;
+#X connect 32 0 21 0;
+#X connect 33 0 36 0;
+#X connect 33 0 35 0;
+#X connect 34 0 33 0;
+#X connect 35 0 40 0;
+#X connect 36 0 13 0;
+#X connect 38 0 21 0;
+#X connect 39 0 21 0;
+#X connect 40 0 37 0;
+#X connect 41 0 7 0;
